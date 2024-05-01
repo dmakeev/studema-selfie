@@ -1,16 +1,11 @@
-# Selfie video module
-
-How to use it:
-* Connect it as npm via "git+https://github.com/dmakeev/studema-selfie.git"
-
-
+export declare class SelfieVideo {
+    private stream?;
     /**
      * Get media stream, if present
      *
      * @returns {MediaStream | undefined}
      */
-    public getStream(): MediaStream | undefined {}
-
+    getStream(): MediaStream | undefined;
     /**
      * Start media stream
      *
@@ -18,18 +13,25 @@ How to use it:
      * @param {string?} deviceId    Device ID, if needed
      * @returns {Promise<MediaStream>}
      */
-    public async start(deviceId?: string): Promise<MediaStream> {}
-
+    start(deviceId?: string): Promise<MediaStream>;
     /**
      * Stop media stream
      *
      */
-    public stop(): void {}
-
+    stop(): void;
     /**
      * Enumerate video devices
      *
      * @async
      * @returns {Promise<MediaDeviceInfo[]>}
      */
-    public async enumerateDevices(): Promise<MediaDeviceInfo[]> {}
+    enumerateDevices(): Promise<MediaDeviceInfo[]>;
+    /**
+     * Change device for existing MediaStream
+     *
+     * @async
+     * @param {string} deviceId
+     * @returns {Promise<void>}
+     */
+    changeDevice(deviceId: string): Promise<void>;
+}
